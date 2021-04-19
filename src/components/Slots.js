@@ -46,7 +46,7 @@ const Slots = ({ slotsNumber, pokemon }) => {
           </div>
         ))}
       <div
-        className={!slotsState.rolling ? 'btn rolling' : 'roll'}
+        className={!slotsState.rolling ? 'btn rolling' : 'btn'}
         onClick={!slotsState.rolling ? roll : undefined}
         disabled={slotsState.rolling}
       >
