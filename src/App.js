@@ -1,5 +1,7 @@
+import { useState } from 'react';
 import Slots from './components/Slots';
 import './App.css';
+import { Fragment } from 'react';
 
 const App = () => {
   const pokemon = [
@@ -40,7 +42,28 @@ const App = () => {
       sprite: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/9.png'
     }
   ];
-  return <Slots slotsNumber={3} pokemon={pokemon} />;
+  const [slotsNumber, setSlotsNumber] = useState(3);
+  const handleSlotNumberChange = op => {
+    if (op === '+') {
+      setSlotsNumber(prev => prev + 1);
+    } else if (op === '-') {
+      slotsNumber === 3 ? alert('3 is the minimum value') : setSlotsNumber(prev => prev - 1);
+    }
+  };
+  return (
+    <Fragment>
+      <div className='row'>
+        <button className='btn' onClick={() => handleSlotNumberChange('-')}>
+          -
+        </button>
+        <p>{slotsNumber}</p>
+        <button className='btn' onClick={() => handleSlotNumberChange('+')}>
+          +
+        </button>
+      </div>
+      <Slots slotsNumber={slotsNumber} pokemon={pokemon} />
+    </Fragment>
+  );
 };
 
 export default App;

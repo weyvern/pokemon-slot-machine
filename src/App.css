@@ -3,6 +3,11 @@
   text-align: center;
 }
 
+.row {
+  display: flex;
+  margin: 10px;
+}
+
 .slot {
   position: relative;
   display: inline-block;
@@ -36,8 +41,8 @@ section {
   text-align: center;
 }
 
-.roll {
-  width: 215px;
+.btn {
+  max-width: 150px;
   cursor: pointer;
   background-color: yellow;
   padding: 10px;
@@ -46,7 +51,9 @@ section {
   border-radius: 20px;
   border: 3px solid black;
 }
-
+button:focus {
+  outline: 0;
+}
 .rolling {
   animation: blinkingText 1.2s infinite;
 }
